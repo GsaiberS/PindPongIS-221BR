@@ -26,7 +26,7 @@ class Ball {
         if (y + radius >= GetScreenHeight() || y - radius <= 0) {
             speed_y *= -1;
         }
-        // Cpu wins
+        
         if (x + radius >= GetScreenWidth()) {
             cpu_score++;
             ResetBall();
@@ -123,13 +123,13 @@ int main() {
     while (WindowShouldClose() == false) {
         BeginDrawing();
 
-        // Updating
+        
 
         ball.Update();
         player.Update();
         cpu.Update(ball.y);
 
-        // Checking for collisions
+        
         if (CheckCollisionCircleRec({ball.x, ball.y}, ball.radius, {player.x, player.y, player.width, player.height})) {
             ball.speed_x *= -1;
         }
@@ -138,7 +138,7 @@ int main() {
             ball.speed_x *= -1;
         }
 
-        // Drawing
+        
         ClearBackground(Dark_Green);
         DrawRectangle(screen_width / 2, 0, screen_width / 2, screen_height, Green);
         DrawCircle(screen_width / 2, screen_height / 2, 150, Light_Green);
